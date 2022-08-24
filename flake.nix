@@ -13,6 +13,7 @@
         package-name = "pretty-print";
         runtime-dependencies = [ 
           nonstdlib.defaultPackage.${system}
+          pkgs.hello
         ];
       in rec {
         devShell = pkgs.mkShell {
@@ -22,15 +23,15 @@
           ];
         };
 
-        defaultPackage = with import nixpkgs { inherit system; };
-          stdenv.mkDerivation {
-            name = package-name;
-            src = self;
-            buildInputs = runtime-dependencies;
-            installPhase = ''
-              mkdir -p $out/bin;
-              install --target-directory $out/bin $name;
-            '';
-          };
+        #defaultPackage = with import nixpkgs { inherit system; };
+        defaultPackage = pkgs.stdenv.mkDerivation {
+          name = package-name;
+          src = self;
+          buildInputs = runtime-dependencies;
+          installPhase = ''
+            mkdir -p $out/bin;
+            install --target-directory $out/bin $name;
+          '';
+        };
       });
 }
