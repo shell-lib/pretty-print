@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck source=/dev/null
-source nonstdlib
+source nonstdlib.sh
 source_guard
 
 function pprint() {

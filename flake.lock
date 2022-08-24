@@ -68,11 +68,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1661364289,
-        "narHash": "sha256-srnxfmbV1ya5OekLcTg8IEnQOMb9pfVY8PmM4dU1kPI=",
+        "lastModified": 1661365158,
+        "narHash": "sha256-1InWl8zT0YoKFClJ0vRtexKSRIK7NmEVRSsN6vUIRxg=",
         "owner": "shell-lib",
         "repo": "nonstdlib",
-        "rev": "72cb06b3ebf8465734c69ca7f5bdc751aa10049c",
+        "rev": "450930748cccc8942a10579af2a0bc0558ea9703",
         "type": "github"
       },
       "original": {
