@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#source nonstdlib
+#include_guard
+echo $PATH | sed 's/:/\n/g'
+
 function pprint() {
 	FINAL_CHAR='\n'
 	INDENT=''

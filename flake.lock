@@ -15,13 +15,28 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1660819943,
-        "narHash": "sha256-TRZV/mlW1eYuojqDC3ueYWj7jsTKXJCtyMLNYX/Ybtw=",
+        "lastModified": 1661239211,
+        "narHash": "sha256-pNJzBlSNpWEiFJZnLF2oETYq8cGWx1DJPW33aMtG6n8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8ea014acc33da95ea56c902229957d8225005163",
+        "rev": "5e804cd8a27f835a402b22e086e36e797716ef8b",
         "type": "github"
       },
       "original": {
@@ -31,10 +46,46 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1661239211,
+        "narHash": "sha256-pNJzBlSNpWEiFJZnLF2oETYq8cGWx1DJPW33aMtG6n8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5e804cd8a27f835a402b22e086e36e797716ef8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nonstdlib": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1661306051,
+        "narHash": "sha256-rEQiXKI9wF7PydWxeD9eZ1I+Cc9WG6UKyp1t9AZtqKg=",
+        "owner": "shell-lib",
+        "repo": "nonstdlib",
+        "rev": "010da481b83348c3fe252a5c90723201ece95e62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shell-lib",
+        "repo": "nonstdlib",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nonstdlib": "nonstdlib"
       }
     }
   },

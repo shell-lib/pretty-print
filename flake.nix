@@ -4,13 +4,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    nonstdlib.url = "github:shell-lib/nonstdlib";
   };
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils, nonstdlib, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
         package-name = "pretty-print";
-        run-dependencies = with pkgs; [];
+        runtime-dependencies = [ 
+          nonstdlib.defaultPackage.${system}
+        ];
       in rec {
         devShell = pkgs.mkShell {
           buildInputs = [
@@ -19,11 +22,15 @@
           ];
         };
 
-        defaultPackage = with import nixpkgs {inherit system; };
-        stdenv.mkDerivation {
-          name = package-name;
-          src = self;
-          installPhase = "mkdir -p $out/lib; install -t $out/lib $name";
-        };
+        defaultPackage = with import nixpkgs { inherit system; };
+          stdenv.mkDerivation {
+            name = package-name;
+            src = self;
+            buildInputs = runtime-dependencies;
+            installPhase = ''
+              mkdir -p $out/bin;
+              install --target-directory $out/bin $name;
+            '';
+          };
       });
 }
