@@ -23,15 +23,10 @@
           ];
         };
 
-        #defaultPackage = with import nixpkgs { inherit system; };
-        defaultPackage = pkgs.stdenv.mkDerivation {
+        defaultPackage = pkgs.writeShellApplication {
           name = package-name;
-          src = self;
-          buildInputs = runtime-dependencies;
-          installPhase = ''
-            mkdir -p $out/bin;
-            install --target-directory $out/bin $name;
-          '';
+          runtimeInputs = runtime-dependencies;
+          text = (builtins.readFile ./${package-name});
         };
       });
 }

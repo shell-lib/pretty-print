@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-hello
-which hello
-
-echo ''
-echo "$PATH" | sed 's/:/\n/g'
-echo ''
-
+# shellcheck source=/dev/null
 source nonstdlib
 include_guard
 
