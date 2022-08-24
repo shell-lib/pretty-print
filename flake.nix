@@ -10,7 +10,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        package-name = "pretty-print";
+        package-name = "pretty-print.sh";
         runtime-dependencies = [ 
           nonstdlib.defaultPackage.${system}
           pkgs.hello
