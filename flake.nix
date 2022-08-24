@@ -23,7 +23,7 @@
         stdenv.mkDerivation {
           name = package-name;
           src = self;
-          installPhase = "mkdir -p $out/bin; install -t $out/bin $name";
+          installPhase = "mkdir -p $out/lib; install -t $out/lib $name";
         };
       });
 }
