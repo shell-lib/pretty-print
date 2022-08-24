@@ -2,7 +2,7 @@
 
 # shellcheck source=/dev/null
 source nonstdlib
-include_guard
+source_guard
 
 function pprint() {
 	FINAL_CHAR='\n'
